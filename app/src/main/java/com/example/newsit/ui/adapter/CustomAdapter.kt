@@ -1,4 +1,4 @@
-package com.example.newsit.adapters
+package com.example.newsit.ui.adapter
 
 import android.content.Context
 import android.content.Intent
@@ -10,13 +10,13 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.newsit.DetailsActivity
+import com.example.newsit.ui.view.DetailsActivity
 import com.example.newsit.R
-import com.example.newsit.models.NewsHeadlines
+import com.example.newsit.models.Article
 
 class CustomAdapter(
     val context: Context,
-    private val headlines: List<NewsHeadlines>
+    private val headlines: List<Article>
 ) :
     RecyclerView.Adapter<CustomViewHolder>() {
 

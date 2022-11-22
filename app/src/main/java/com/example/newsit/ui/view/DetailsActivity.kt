@@ -1,10 +1,11 @@
-package com.example.newsit
+package com.example.newsit.ui.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
+import com.example.newsit.R
 
 class DetailsActivity : AppCompatActivity() {
 
