@@ -3,9 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/1pfch/AndroidStudioProjects/NewsIt/app/src/main/res/drawable/ic_bookmarked.xml" value="0.2203125" />
+        <entry key="..\:/Users/1pfch/AndroidStudioProjects/NewsIt/app/src/main/res/drawable/ic_collections_bookmark.xml" value="0.2169230769230769" />
         <entry key="..\:/Users/1pfch/AndroidStudioProjects/NewsIt/app/src/main/res/layout/activity_details.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/1pfch/AndroidStudioProjects/NewsIt/app/src/main/res/layout/activity_load_news.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/1pfch/AndroidStudioProjects/NewsIt/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/1pfch/AndroidStudioProjects/NewsIt/app/src/main/res/layout/headline_list_item.xml" value="0.33" />
+        <entry key="..\:/Users/1pfch/AndroidStudioProjects/NewsIt/app/src/main/res/layout/categories_list_item.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/1pfch/AndroidStudioProjects/NewsIt/app/src/main/res/layout/headline_list_item.xml" value="0.22" />
+        <entry key="..\:/Users/1pfch/AndroidStudioProjects/NewsIt/app/src/main/res/layout/top_headline_list_item.xml" value="0.18" />
       </map>
     </option>
   </component>

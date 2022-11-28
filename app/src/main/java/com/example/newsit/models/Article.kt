@@ -1,5 +1,8 @@
 package com.example.newsit.models
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
 data class Article(
     val source: Source? = null,
     val author: String? = null,
