@@ -54,7 +54,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         showList()
-        vm.fetchArticles("general", null, Constants.pageSize)
+        callApi()
+    }
+
+    private fun callApi() {
+        vm.fetchArticles("general", null, Constants.topPageSize)
         vm.articles.observe(this) {
             Toast.makeText(this@MainActivity, "inside method", Toast.LENGTH_SHORT).show()
             if (it != null && !it.articles.isNullOrEmpty()) {

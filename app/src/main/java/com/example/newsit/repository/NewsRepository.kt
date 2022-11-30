@@ -1,17 +1,11 @@
 package com.example.newsit.repository
 
-import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import com.example.newsit.api.NewsInstance
-import com.example.newsit.api.NewsInterface
 import com.example.newsit.db.NewsDao
-import com.example.newsit.models.Article
 import com.example.newsit.models.News
 import com.example.newsit.util.Constants.Companion.API_KEY
-import com.example.newsit.util.Constants.Companion.pageSize
 import com.example.newsit.util.Constants.Companion.topPageSize
-import com.example.newsit.util.NetworkUtils
 
 class NewsRepository(private val newsDao: NewsDao) {
 

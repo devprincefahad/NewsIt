@@ -3,34 +3,33 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:fillViewport="true"
+        tools:context=".ui.view.MainActivity">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            tools:context=".ui.view.MainActivity">
-
-            <!--        <ProgressBar-->
-            <!--            android:id="@+id/progress_Bar"-->
-            <!--            android:layout_width="wrap_content"-->
-            <!--            android:layout_height="wrap_content"-->
-            <!--            android:layout_centerInParent="true" />-->
+            android:layout_height="wrap_content">
 
             <RelativeLayout
+                android:id="@+id/relativeLayout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:background="@color/pink">
 
                 <TextView
-                    android:id="@+id/tvTopNews"
+                    android:id="@+id/tvNewsIt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:text="Top News"
-                    android:textColor="#000"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="NewsIt!"
+                    android:textColor="#FFF"
                     android:textSize="25sp"
                     android:textStyle="bold" />
 
@@ -47,177 +46,105 @@
                     android:src="@drawable/ic_collections_bookmark" />
 
             </RelativeLayout>
-            <!--        <androidx.cardview.widget.CardView-->
-            <!--            android:id="@+id/cardViewMain"-->
-            <!--            android:layout_width="match_parent"-->
-            <!--            android:layout_height="wrap_content"-->
-            <!--            android:layout_margin="14dp"-->
-            <!--            app:cardElevation="8dp">-->
 
-            <!--            <androidx.appcompat.widget.SearchView-->
-            <!--                android:id="@+id/searchView"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="?attr/actionBarSize"-->
-            <!--                app:defaultQueryHint="Search News..."-->
-            <!--                app:iconifiedByDefault="false" />-->
-
-            <!--        </androidx.cardview.widget.CardView>-->
-
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerTop"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
-                android:orientation="horizontal"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/top_headline_list_item" />
-
-            <TextView
-                android:id="@+id/tvCategories"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:text="Explore"
-                android:textColor="#000"
-                android:textSize="25sp"
-                android:textStyle="bold" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerCategories"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp" />
-
-
-            <!--        <HorizontalScrollView-->
-            <!--            android:id="@+id/scrollView"-->
-            <!--            android:layout_width="match_parent"-->
-            <!--            android:layout_height="wrap_content"-->
-            <!--            android:layout_below="@id/cardViewMain"-->
-            <!--            android:layout_margin="6dp">-->
-
-            <!--            <LinearLayout-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content">-->
-
-            <!--                <Button-->
-            <!--                    android:id="@+id/btn1"-->
-            <!--                    android:layout_width="wrap_content"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:layout_margin="6dp"-->
-            <!--                    android:padding="6dp"-->
-            <!--                    android:text="Business"-->
-            <!--                    android:textAllCaps="false"-->
-            <!--                    android:textSize="12sp" />-->
-
-            <!--                <Button-->
-            <!--                    android:id="@+id/btn2"-->
-            <!--                    android:layout_width="wrap_content"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:layout_margin="6dp"-->
-            <!--                    android:padding="6dp"-->
-            <!--                    android:text="Entertainment"-->
-            <!--                    android:textAllCaps="false"-->
-            <!--                    android:textSize="12sp" />-->
-
-            <!--                <Button-->
-            <!--                    android:id="@+id/btn3"-->
-            <!--                    android:layout_width="wrap_content"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:layout_margin="6dp"-->
-            <!--                    android:padding="6dp"-->
-            <!--                    android:text="General"-->
-            <!--                    android:textAllCaps="false"-->
-            <!--                    android:textSize="12sp" />-->
-
-            <!--                <Button-->
-            <!--                    android:id="@+id/btn4"-->
-            <!--                    android:layout_width="wrap_content"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:layout_margin="6dp"-->
-            <!--                    android:padding="6dp"-->
-            <!--                    android:text="Health"-->
-            <!--                    android:textAllCaps="false"-->
-            <!--                    android:textSize="12sp" />-->
-
-            <!--                <Button-->
-            <!--                    android:id="@+id/btn5"-->
-            <!--                    android:layout_width="wrap_content"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:layout_margin="6dp"-->
-            <!--                    android:padding="6dp"-->
-            <!--                    android:text="Science"-->
-            <!--                    android:textAllCaps="false"-->
-            <!--                    android:textSize="12sp" />-->
-
-            <!--                <Button-->
-            <!--                    android:id="@+id/btn6"-->
-            <!--                    android:layout_width="wrap_content"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:layout_margin="6dp"-->
-            <!--                    android:padding="6dp"-->
-            <!--                    android:text="Sports"-->
-            <!--                    android:textAllCaps="false"-->
-            <!--                    android:textSize="12sp" />-->
-
-            <!--                <Button-->
-            <!--                    android:id="@+id/btn7"-->
-            <!--                    android:layout_width="wrap_content"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:layout_margin="6dp"-->
-            <!--                    android:padding="6dp"-->
-            <!--                    android:text="Technology"-->
-            <!--                    android:textAllCaps="false"-->
-            <!--                    android:textSize="12sp" />-->
-
-            <!--            </LinearLayout>-->
-
-            <!--        </HorizontalScrollView>-->
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/tvRecentNews"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_margin="8dp"
-                    android:text="Recent News"
-                    android:textColor="#000"
-                    android:textSize="25sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tvViewAll"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="12dp"
-                    android:layout_marginBottom="8dp"
-                    android:text="View All"
-                    android:textColor="#2196F3"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-
-            </RelativeLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerMain"
+            <LinearLayout
+                android:id="@+id/linearLayoutMain"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="8dp"
-                android:orientation="vertical"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/headline_list_item" />
+                android:layout_below="@id/relativeLayout"
+                android:orientation="vertical">
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/tvTopNews"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="Top News"
+                    android:textColor="#000"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerTop"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:nestedScrollingEnabled="false"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/top_headline_list_item" />
+
+                <TextView
+                    android:id="@+id/tvCategories"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:text="Explore"
+                    android:textColor="#000"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerCategories"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:nestedScrollingEnabled="false" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tvRecentNews"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="Recent News"
+                        android:textColor="#000"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvViewAll"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="View All"
+                        android:textColor="#2196F3"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:nestedScrollingEnabled="false"
+                    android:orientation="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/headline_list_item" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
     </ScrollView>
+
 </layout>

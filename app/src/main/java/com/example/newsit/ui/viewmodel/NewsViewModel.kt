@@ -1,9 +1,15 @@
 package com.example.newsit.ui.viewmodel
 
 import android.app.Application
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.os.Build
 import android.util.Log
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.*
+import com.example.newsit.NewsApplication
 import com.example.newsit.db.NewsDao
 import com.example.newsit.db.NewsDatabase
 import com.example.newsit.models.Article
@@ -72,6 +78,45 @@ class NewsViewModel(application: Application) : AndroidViewModel(application) {
                 }
             }
         }
+    }
+
+//    fun hasInternetConnection(): Boolean {
+//        val connectivityManager = getApplication<NewsApplication>().getSystemService(
+//            Context.CONNECTIVITY_SERVICE
+//        ) as ConnectivityManager
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//            val activeNetwork = connectivityManager.activeNetwork ?: return false
+//            val capabilities = connectivityManager.getNetworkCapabilities(activeNetwork) ?: false
+//            return when {
+//                cap
+//            }
+//        }
+//    }
+
+    fun isOnline(context: Context): Boolean {
+        val connectivityManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        if (connectivityManager != null) {
+            val capabilities =
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
+                } else {
+                    TODO("VERSION.SDK_INT < M")
+                }
+            if (capabilities != null) {
+                if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
+                    Log.i("Internet", "NetworkCapabilities.TRANSPORT_CELLULAR")
+                    return true
+                } else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
+                    Log.i("Internet", "NetworkCapabilities.TRANSPORT_WIFI")
+                    return true
+                } else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)) {
+                    Log.i("Internet", "NetworkCapabilities.TRANSPORT_ETHERNET")
+                    return true
+                }
+            }
+        }
+        return false
     }
 
 }

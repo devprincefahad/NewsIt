@@ -11,7 +11,7 @@ interface NewsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(news: News)
 
-    @Query("SELECT * from news")
+    @Query("SELECT * from news order by id DESC")
     fun getAllDbNews(): LiveData<List<News>>
 
     @Query("DELETE FROM news WHERE title=:title")
