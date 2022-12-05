@@ -3,6 +3,7 @@ package com.example.newsit.ui.view
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -16,6 +17,7 @@ import com.example.newsit.ui.adapter.NewsAdapter
 import com.example.newsit.ui.adapter.NewsDbAdapter
 import com.example.newsit.ui.viewmodel.NewsViewModel
 import com.example.newsit.util.Constants
+import com.example.newsit.util.NetworkConnection
 
 class LoadNewsActivity : AppCompatActivity() {
 
@@ -43,11 +45,6 @@ class LoadNewsActivity : AppCompatActivity() {
             binding.tvNewsTitle.text = "Saved News"
             loadSavedDb()
         }
-
-        /* binding.loadNewsRecycler.setHasFixedSize(true)
-         binding.loadNewsRecycler.layoutManager = LinearLayoutManager(this@LoadNewsActivity)
-         newsAdapter = NewsDbAdapter(this@LoadNewsActivity, newsList)
-         binding.loadNewsRecycler.adapter = newsAdapter*/
 
         binding.imgBackArrow.setOnClickListener {
             onBackPressed()
@@ -100,4 +97,5 @@ class LoadNewsActivity : AppCompatActivity() {
         adapter = NewsAdapter(this@LoadNewsActivity, articles)
         binding.loadNewsRecycler.adapter = adapter
     }
+
 }

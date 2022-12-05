@@ -9,6 +9,29 @@ import android.net.*
 import android.os.Build
 import androidx.lifecycle.LiveData
 
+/*object NetworkConnection {
+
+    fun isInternetAvailable(context: Context): Boolean {
+
+        val conMgr = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager?
+
+        if (conMgr!!.getNetworkInfo(ConnectivityManager.TYPE_MOBILE)!!.state == NetworkInfo.State.CONNECTED || conMgr.getNetworkInfo(
+                ConnectivityManager.TYPE_WIFI
+            )!!.state == NetworkInfo.State.CONNECTED
+        ) {
+
+            return true
+        } else if (conMgr.getNetworkInfo(ConnectivityManager.TYPE_MOBILE)!!.state == NetworkInfo.State.DISCONNECTED || conMgr.getNetworkInfo(
+                ConnectivityManager.TYPE_WIFI
+            )!!.state == NetworkInfo.State.DISCONNECTED
+        ) {
+
+            return false
+        }
+
+        return true
+    }
+}*/
 class NetworkConnection(private val context: Context) : LiveData<Boolean>() {
 
     private var connectivityManager: ConnectivityManager =
@@ -39,7 +62,7 @@ class NetworkConnection(private val context: Context) : LiveData<Boolean>() {
         super.onInactive()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             connectivityManager.unregisterNetworkCallback(connectivityManagerCallback())
-        }else{
+        } else {
             context.unregisterReceiver(networkReceiver)
         }
     }
@@ -87,8 +110,8 @@ class NetworkConnection(private val context: Context) : LiveData<Boolean>() {
         val activeNetwork: NetworkInfo? = connectivityManager.activeNetworkInfo
         postValue(activeNetwork?.isConnected == true)
     }
-
-    /*companion object {
+}
+/*companion object {
 
         fun isNetworkAvailable(context: Context): Boolean {
             (context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager).run {
@@ -103,5 +126,6 @@ class NetworkConnection(private val context: Context) : LiveData<Boolean>() {
             }
         }
 
-    }*/
-}
+    }*//*
+
+}*/

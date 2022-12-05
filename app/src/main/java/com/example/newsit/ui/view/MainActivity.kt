@@ -40,15 +40,6 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
-        val networkConnection = NetworkConnection(applicationContext)
-        networkConnection.observe(this, Observer { isConnected ->
-            if (isConnected) {
-                binding.linearLayoutMain.visibility = View.VISIBLE
-            } else {
-                binding.linearLayoutMain.visibility = View.GONE
-            }
-        })
-
         vm = ViewModelProvider(
             this,
             ViewModelProvider.AndroidViewModelFactory.getInstance(application)
@@ -65,6 +56,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        getInternetState()
         showList()
         callApi()
     }
@@ -74,7 +66,6 @@ class MainActivity : AppCompatActivity() {
         //for main news
         vm.fetchArticles("general", null, Constants.topPageSize)
         vm.articles.observe(this) {
-            Toast.makeText(this@MainActivity, "inside method", Toast.LENGTH_SHORT).show()
             if (it != null && !it.articles.isNullOrEmpty()) {
                 Log.d("mainactivity", it.totalResults.toString())
                 articles.clear()
@@ -88,11 +79,9 @@ class MainActivity : AppCompatActivity() {
         vm.topArticlesLD.observe(this) {
             if (it != null && !it.articles.isNullOrEmpty()) {
                 Log.d("mainactivity", it.totalResults.toString())
-                Log.d("mainactivity", "inside the method")
                 topArticles.clear()
                 topArticles.addAll(it.articles)
                 topAdapter.notifyDataSetChanged()
-
             }
         }
     }
@@ -124,6 +113,17 @@ class MainActivity : AppCompatActivity() {
         binding.recyclerMain.layoutManager = LinearLayoutManager(this@MainActivity)
         adapter = NewsAdapter(this@MainActivity, articles)
         binding.recyclerMain.adapter = adapter
+    }
+
+    private fun getInternetState() {
+        val networkConnection = NetworkConnection(applicationContext)
+        networkConnection.observe(this, Observer { isConnected ->
+            if (isConnected) {
+                binding.linearLayoutMain.visibility = View.VISIBLE
+            } else {
+                binding.linearLayoutMain.visibility = View.GONE
+            }
+        })
     }
 
 }
