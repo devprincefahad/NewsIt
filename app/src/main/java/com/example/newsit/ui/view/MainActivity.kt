@@ -4,9 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,6 +21,7 @@ import com.example.newsit.ui.adapter.NewsAdapter
 import com.example.newsit.ui.adapter.TopNewsAdapter
 import com.example.newsit.ui.viewmodel.NewsViewModel
 import com.example.newsit.util.Constants
+import com.example.newsit.util.NetworkConnection
 
 class MainActivity : AppCompatActivity() {
 
@@ -37,6 +40,15 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
+        val networkConnection = NetworkConnection(applicationContext)
+        networkConnection.observe(this, Observer { isConnected ->
+            if (isConnected) {
+                binding.linearLayoutMain.visibility = View.VISIBLE
+            } else {
+                binding.linearLayoutMain.visibility = View.GONE
+            }
+        })
+
         vm = ViewModelProvider(
             this,
             ViewModelProvider.AndroidViewModelFactory.getInstance(application)
@@ -49,7 +61,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.imgAllBookmarks.setOnClickListener {
-            val intent = Intent(this,LoadNewsActivity::class.java)
+            val intent = Intent(this, LoadNewsActivity::class.java)
             startActivity(intent)
         }
 
@@ -58,6 +70,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun callApi() {
+
+        //for main news
         vm.fetchArticles("general", null, Constants.topPageSize)
         vm.articles.observe(this) {
             Toast.makeText(this@MainActivity, "inside method", Toast.LENGTH_SHORT).show()
@@ -68,6 +82,8 @@ class MainActivity : AppCompatActivity() {
                 adapter.notifyDataSetChanged()
             }
         }
+
+        //for top news
         vm.fetchTopArticles()
         vm.topArticlesLD.observe(this) {
             if (it != null && !it.articles.isNullOrEmpty()) {
