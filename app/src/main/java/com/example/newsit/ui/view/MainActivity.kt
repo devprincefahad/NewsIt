@@ -61,6 +61,17 @@ class MainActivity : AppCompatActivity() {
         callApi()
     }
 
+    private fun getInternetState() {
+        val networkConnection = NetworkConnection(applicationContext)
+        networkConnection.observe(this, Observer { isConnected ->
+            if (isConnected) {
+                binding.linearLayoutMain.visibility = View.VISIBLE
+            } else {
+                binding.linearLayoutMain.visibility = View.GONE
+            }
+        })
+    }
+
     private fun callApi() {
 
         //for main news
@@ -115,15 +126,5 @@ class MainActivity : AppCompatActivity() {
         binding.recyclerMain.adapter = adapter
     }
 
-    private fun getInternetState() {
-        val networkConnection = NetworkConnection(applicationContext)
-        networkConnection.observe(this, Observer { isConnected ->
-            if (isConnected) {
-                binding.linearLayoutMain.visibility = View.VISIBLE
-            } else {
-                binding.linearLayoutMain.visibility = View.GONE
-            }
-        })
-    }
 
 }
