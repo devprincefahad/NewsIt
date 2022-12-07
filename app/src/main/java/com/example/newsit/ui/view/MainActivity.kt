@@ -59,15 +59,19 @@ class MainActivity : AppCompatActivity() {
         getInternetState()
         showList()
         callApi()
+
     }
 
     private fun getInternetState() {
-        val networkConnection = NetworkConnection(applicationContext)
+        val networkConnection = NetworkConnection(application)
         networkConnection.observe(this, Observer { isConnected ->
             if (isConnected) {
                 binding.linearLayoutMain.visibility = View.VISIBLE
+                binding.noNews.visibility = View.GONE
             } else {
+                Toast.makeText(this,"Not Connected to internet",Toast.LENGTH_SHORT).show()
                 binding.linearLayoutMain.visibility = View.GONE
+                binding.noNews.visibility = View.VISIBLE
             }
         })
     }
@@ -125,6 +129,5 @@ class MainActivity : AppCompatActivity() {
         adapter = NewsAdapter(this@MainActivity, articles)
         binding.recyclerMain.adapter = adapter
     }
-
 
 }

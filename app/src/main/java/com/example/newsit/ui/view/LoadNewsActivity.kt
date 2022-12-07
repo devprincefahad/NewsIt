@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -68,6 +69,10 @@ class LoadNewsActivity : AppCompatActivity() {
                 )
             }
             Log.d("data", nList.toString())
+            if (nList.isNullOrEmpty()){
+                binding.noData.visibility = View.VISIBLE
+                //Toast.makeText(this,"No data saved",Toast.LENGTH_SHORT).show()
+            }
             newsAdapter = NewsDbAdapter(this@LoadNewsActivity, nList)
             binding.loadNewsRecycler.adapter = newsAdapter
 //            newsList.clear()

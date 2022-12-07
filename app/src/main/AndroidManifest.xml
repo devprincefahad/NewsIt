@@ -14,6 +14,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NewsIt">
         <activity
+            android:theme="@style/SplashScreenTheme"
+            android:name=".ui.view.SplashScreenActivity"
+            android:exported="true" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+        <activity
             android:name=".ui.view.LoadNewsActivity"
             android:exported="false" />
         <activity
@@ -22,11 +34,7 @@
         <activity
             android:name=".ui.view.MainActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

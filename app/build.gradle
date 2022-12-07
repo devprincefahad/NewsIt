@@ -65,6 +65,7 @@ dependencies {
     implementation("androidx.room:room-ktx:$room_version")
 
     def lottieVersion = "5.2.0"
+//    def lottieVersion = "4.2.1"
 
     implementation "com.airbnb.android:lottie:$lottieVersion"
 

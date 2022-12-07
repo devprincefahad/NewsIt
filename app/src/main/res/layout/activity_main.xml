@@ -46,6 +46,25 @@
 
             </RelativeLayout>
 
+            <RelativeLayout
+                android:id="@+id/noNews"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/relativeLayout">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="Not Connected to the internet!"
+                    android:textColor="#000"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
             <!--            <ProgressBar-->
             <!--                android:id="@+id/progress_Bar"-->
             <!--                android:layout_width="wrap_content"-->
