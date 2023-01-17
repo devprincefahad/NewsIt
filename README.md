@@ -6,10 +6,10 @@
 
 ## 🔥 Features
  - Short News to save your time
+ - Get Latest updated News
+ - News from around the Globe
  - Enables to bookmark news Items so user can easily read in offline mode
  - News Available in different categories 
- - Image Labeling
- - Text Recognition
  
   ## 🛠 Tech Used
 - News Api
