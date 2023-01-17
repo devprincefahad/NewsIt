@@ -20,4 +20,3 @@
 - Coroutines
 - Glide
 - MVVM
-- Google Analytics
