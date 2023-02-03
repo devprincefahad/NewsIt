@@ -105,7 +105,7 @@ class DetailsActivity : AppCompatActivity() {
      }*/
 
     fun checkBookmark() {
-        viewModel.checkNote(title)
+        viewModel.checkNews(title)
         viewModel.isBookmarked.observe(this, androidx.lifecycle.Observer {
 
             if (it) {
