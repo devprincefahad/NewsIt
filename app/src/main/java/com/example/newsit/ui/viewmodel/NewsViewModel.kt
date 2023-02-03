@@ -30,15 +30,15 @@ class NewsViewModel(application: Application) : AndroidViewModel(application) {
     private val _isBookmarked = MutableLiveData<Boolean>()
     val isBookmarked: LiveData<Boolean> = _isBookmarked
 
-    fun insertNote(news: News) = viewModelScope.launch(Dispatchers.IO) {
+    fun insertNews(news: News) = viewModelScope.launch(Dispatchers.IO) {
         repository.insert(news)
     }
 
-    fun deleteNote(title: String) = viewModelScope.launch(Dispatchers.IO) {
+    fun deleteNews(title: String) = viewModelScope.launch(Dispatchers.IO) {
         repository.delete(title)
     }
 
-    fun checkNote(title: String) {
+    fun checkNews(title: String) {
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
                 _isBookmarked.postValue(repository.checkBookmark(title))

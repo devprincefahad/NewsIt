@@ -67,13 +67,13 @@ class DetailsActivity : AppCompatActivity() {
             val bookMark =
                 News(0, title, description, url, urlToImage, publishedAt, content)
 
-            viewModel.insertNote(bookMark)
+            viewModel.insertNews(bookMark)
             binding.imgBookmark.visibility = View.GONE
             binding.imgBookmarkEd.visibility = View.VISIBLE
         }
 
         binding.imgBookmarkEd.setOnClickListener {
-            viewModel.deleteNote(title)
+            viewModel.deleteNews(title)
             binding.imgBookmarkEd.visibility = View.GONE
             binding.imgBookmark.visibility = View.VISIBLE
         }
